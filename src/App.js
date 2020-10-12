@@ -1,10 +1,14 @@
 import React from 'react';
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Routes from "./Routes";
 
 function App() {
     return (
         <div className="App">
-            <h1>This is app</h1>
-            <a href="/shop">Shop</a>
+            <Header />
+            <Routes />
+            <Footer />
         </div>
     );
 }
