@@ -8,6 +8,7 @@ import Cart from "./Components/main components/Cart";
 import ShopItemCard from "./Components/render components/ShopItemCard";
 import shopItems from './ShopItems.json';
 import CartItemCard from "./Components/render components/CartItemCard";
+import Buy from "./Components/main components/Buy";
 
 function App() {
     const [shopItemsArray] = useState(shopItems);
@@ -57,10 +58,13 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/shop">
-                        <Shop shopItems={shopItemCards}/>
+                        <Shop shopItems={shopItemCards} cartItems={cartItemCards}/>
                     </Route>
                     <Route exact path="/cart">
-                        <Cart cartItems={cartItemCards}/>
+                        <Cart cartItems={cartItemsArray} cartItemCards={cartItemCards}/>
+                    </Route>
+                    <Route exact path="/buy">
+                        <Buy cartItems={cartItemsArray}/>
                     </Route>
                 </Switch>
                 <Footer/>

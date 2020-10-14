@@ -4,5 +4,11 @@
     "name": "shirt",
     "price": 100,
     "quantity": 0
+  },
+  {
+    "id": 2,
+    "name": "pant",
+    "price": 150,
+    "quantity": 0
   }
 ]
