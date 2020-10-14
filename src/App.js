@@ -14,12 +14,29 @@ function App() {
 
     const addToCart = (id) => {
         const shopItem = shopItemsArray[id - 1];
+        shopItem.quantity = 1;
         setCartItems([...cartItemsArray, shopItem]);
+    }
+
+    const updateCart = (index, op) => {
+        console.log('in update');
+        const cartItems = cartItemsArray.slice();
+        const cartItem = cartItems[index];
+
+        const quantity = op === '+' ? cartItem.quantity + 1 : cartItem.quantity - 1;
+
+        // delete item from cartItems if quantity is 0.
+        if(quantity === 0) cartItems.splice(index, 1);
+        else cartItem.quantity = quantity;
+
+        setCartItems(cartItems);
     }
 
     const shopItemCards = shopItemsArray.map(shopItem => <ShopItemCard
         key = {shopItem.id}
         values={shopItem}
+        cartItems={cartItemsArray}
+        updateCart={updateCart}
         addToCart={addToCart}
     />);
 
