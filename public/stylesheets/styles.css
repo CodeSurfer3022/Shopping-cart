@@ -6,6 +6,10 @@ footer {
     background: blueviolet;
 }
 
-.card {
+.shop-card {
     background: azure;
+}
+
+.cart-card {
+    background: aliceblue;
 }

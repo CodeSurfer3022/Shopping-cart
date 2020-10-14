@@ -27,8 +27,8 @@ function App() {
 
     return (
         <>
-            <Header cartCount={cartCount}/>
             <Router>
+                <Header cartCount={cartCount}/>
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/shop">
@@ -38,8 +38,8 @@ function App() {
                         <Cart cartItems={cartItemsArray}/>
                     </Route>
                 </Switch>
+                <Footer/>
             </Router>
-            <Footer/>
         </>
     );
 }
