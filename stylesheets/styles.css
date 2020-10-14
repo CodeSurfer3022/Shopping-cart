@@ -1,0 +1,15 @@
+header {
+    background: coral;
+}
+
+footer {
+    background: blueviolet;
+}
+
+.shop-card {
+    background: azure;
+}
+
+.cart-card {
+    background: aliceblue;
+}
