@@ -48,7 +48,7 @@ function App() {
         updateCart={updateCart}
     />);
 
-    const cartCount = cartItemsArray.length;
+    const cartCount = cartItemsArray.reduce((acc, cur) => acc + cur.quantity, 0);
 
     return (
         <>

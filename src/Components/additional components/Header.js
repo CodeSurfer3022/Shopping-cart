@@ -8,6 +8,9 @@ function Header(props) {
             <div className="searchbar" />
             <div className="country" />
             <div className="greeting">Namaste, Chandra!</div>
+            <div>
+                <Link to="/shop">Shop</Link>
+            </div>
             <div className="shopping-bag">
                 <Link to="/cart"><i className="fas fa-shopping-bag"></i></Link>
                 <span>{props.cartCount}</span>
