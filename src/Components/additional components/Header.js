@@ -9,7 +9,7 @@ function Header(props) {
             <div className="greeting">Namaste, Chandra!</div>
             <div className="shopping-bag">
                 <a href="/cart"><i className="fas fa-shopping-bag"></i></a>
-                <span></span>
+                <span>{props.cartCount}</span>
             </div>
         </header>
     )
