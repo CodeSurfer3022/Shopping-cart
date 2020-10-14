@@ -7,9 +7,10 @@ import Shop from "./Components/main components/Shop";
 import Cart from "./Components/main components/Cart";
 import ShopItemCard from "./Components/render components/ShopItemCard";
 import shopItems from './ShopItems.json';
+import CartItemCard from "./Components/render components/CartItemCard";
 
 function App() {
-    const [shopItemsArray, setShopItems] = useState(shopItems);
+    const [shopItemsArray] = useState(shopItems);
     const[cartItemsArray, setCartItems] = useState([]);
 
     const addToCart = (id) => {
@@ -40,6 +41,13 @@ function App() {
         addToCart={addToCart}
     />);
 
+    const cartItemCards = cartItemsArray.map(cartItem => <CartItemCard
+        key = {cartItem.id}
+        values={cartItem}
+        cartItems={cartItemsArray}
+        updateCart={updateCart}
+    />);
+
     const cartCount = cartItemsArray.length;
 
     return (
@@ -49,10 +57,10 @@ function App() {
                 <Switch>
                     <Route exact path="/" component={Home} />
                     <Route exact path="/shop">
-                        <Shop items={shopItemCards}/>
+                        <Shop shopItems={shopItemCards}/>
                     </Route>
                     <Route exact path="/cart">
-                        <Cart cartItems={cartItemsArray}/>
+                        <Cart cartItems={cartItemCards}/>
                     </Route>
                 </Switch>
                 <Footer/>

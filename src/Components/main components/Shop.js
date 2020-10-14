@@ -5,7 +5,7 @@ function Shop(props) {
         <div className="shop">
             <h1>this is shop</h1>
             <div>
-                {props.items}
+                {props.shopItems}
             </div>
         </div>
     )
