@@ -34,6 +34,11 @@ function App() {
         setCartItems(cartItems);
     }
 
+    const clearCart = () => {
+        console.log('in the clear');
+        setCartItems([]);
+    }
+
     const shopItemCards = shopItemsArray.map(shopItem => <ShopItemCard
         key = {shopItem.id}
         values={shopItem}
@@ -64,7 +69,7 @@ function App() {
                         <Cart cartItems={cartItemsArray} cartItemCards={cartItemCards}/>
                     </Route>
                     <Route exact path="/buy">
-                        <Buy cartItems={cartItemsArray}/>
+                        <Buy cartItems={cartItemsArray} clearCart={clearCart}/>
                     </Route>
                 </Switch>
                 <Footer/>
