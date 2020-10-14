@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "shirt",
-    "price": 100
+    "price": 100,
+    "quantity": 0
   }
 ]
