@@ -1,3 +1,3 @@
 # Shopping cart
 
-Live demo: https://codesurfer3022.github.io/Shopping-cart/
+Live demo: https://chandraprakash-dev.github.io/Shopping-cart/
