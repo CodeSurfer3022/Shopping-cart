@@ -3,34 +3,46 @@ import {Link} from "react-router-dom";
 import AddressCard from "../render components/AddressCard";
 
 function Buy(props) {
-  const [addresses, setAddress] = useState([]);
+  const [addresses, setAddresses] = useState([]);
+  const [address, setAddress] = useState('');
+
   const addressFormRef = useRef();
 
-  const addressCards = addresses.map((address, index) =>
-    <AddressCard key={index} address={address}/>)
+  const selectAddress = (event) => {
+    event.preventDefault();
+    const div = event.target.parentNode;
+    const address = div.querySelector('.address').textContent;
+    setAddress(address);
+  }
 
-  const handleSubmit = (event) => {
+  const addAddress = (event) => {
     event.preventDefault();
     const address = addressFormRef.current.address.value;
-    setAddress((prevAddress) => {
+    setAddresses((prevAddress) => {
       return [...prevAddress, address];
     });
-    // props.clearCart();
   }
+
+  const addressCards = addresses.map((address, index) =>
+    <AddressCard
+      key={index}
+      index={index}
+      address={address}
+      selectAddress={selectAddress}
+    />)
 
   return (
     <div>
       <Link to="/cart">
         <h2>Cancel</h2>
       </Link>
-      <form onSubmit={handleSubmit} name="addressForm" ref={addressFormRef}>
+      <form name="addressForm" ref={addressFormRef}>
         <p>Select a delivery address</p>
         {addressCards}
         <label>
           <input name="address" placeholder="Enter your address"/>
         </label>
-        <button>Add new address</button>
-        <button>Confirm</button>
+        <button onClick={addAddress}>Add new address</button>
       </form>
     </div>
   )
