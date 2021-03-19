@@ -18,9 +18,22 @@ function Buy(props) {
   const addAddress = (event) => {
     event.preventDefault();
     const address = addressFormRef.current.address.value;
+
     setAddresses((prevAddress) => {
-      return [...prevAddress, address];
+      let checked = prevAddress.length === 0;
+      if(checked) setAddress(address);
+      return [...prevAddress, {address, checked: checked}];
     });
+  }
+
+  const handleChange = (index) => {
+    setAddresses(prevAddresses => {
+      const newAddresses = prevAddresses.slice();
+      newAddresses.forEach(address => address.checked = false);
+      const address = newAddresses[index];
+      address.checked = true;
+      return newAddresses;
+    })
   }
 
   const addressCards = addresses.map((address, index) =>
@@ -29,6 +42,7 @@ function Buy(props) {
       index={index}
       address={address}
       selectAddress={selectAddress}
+      handleChange={handleChange}
     />)
 
   return (
@@ -36,9 +50,11 @@ function Buy(props) {
       <Link to="/cart">
         <h2>Cancel</h2>
       </Link>
-      <form name="addressForm" ref={addressFormRef}>
-        <p>Select a delivery address</p>
+      <p>Select a delivery address</p>
+      <div className="addresses">
         {addressCards}
+      </div>
+      <form name="addressForm" ref={addressFormRef}>
         <label>
           <input name="address" placeholder="Enter your address"/>
         </label>

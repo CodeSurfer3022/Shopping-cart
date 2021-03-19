@@ -9,6 +9,8 @@ import Home from "./Components/main components/Home";
 import Shop from "./Components/main components/Shop";
 import Cart from "./Components/main components/Cart";
 import Buy from "./Components/main components/Buy";
+import Payment from "./Components/main components/Payment";
+import Confirmation from "./Components/main components/Confirmation";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -62,8 +64,13 @@ function App() {
         <Route path="/buy">
           <Buy
             cartItems={cartItems}
-            clearCart={clearCart}
           />
+        </Route>
+        <Route path="/payment">
+          <Payment />
+        </Route>
+        <Route>
+          <Confirmation />
         </Route>
       </Switch>
       <Footer/>
