@@ -7,8 +7,8 @@ import Footer from "./Components/additional components/Footer";
 
 import Home from "./Components/main components/Home";
 import Shop from "./Components/main components/Shop";
-import Cart from "./Components/main components/Cart";
-import Buy from "./Components/main components/Buy";
+// import Cart from "./Components/main components/Cart";
+// import Buy from "./Components/main components/Buy";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -21,16 +21,16 @@ function App() {
 
   const updateCart = (index, op) => {
     console.log('in update');
-    const cartItems = cartItems.slice();
-    const cartItem = cartItems[index];
+    const newCartItems = cartItems.slice();
+    const newCartItem = newCartItems[index];
 
-    const quantity = op === '+' ? cartItem.quantity + 1 : cartItem.quantity - 1;
+    const quantity = op === '+' ? newCartItem.quantity + 1 : newCartItem.quantity - 1;
 
     // delete item from cartItems if quantity is 0.
-    if (quantity === 0) cartItems.splice(index, 1);
-    else cartItem.quantity = quantity;
+    if (quantity === 0) newCartItems.splice(index, 1);
+    else newCartItem.quantity = quantity;
 
-    setCartItems(cartItems);
+    setCartItems(newCartItems);
   }
 
   const clearCart = () => {
@@ -46,14 +46,19 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/shop">
-          <Shop shopItems={shopItems} cartItems={cartItems}/>
+          <Shop
+            shopItems={shopItems}
+            cartItems={cartItems}
+            addToCart={addToCart}
+            updateCart={updateCart}
+          />
         </Route>
-        <Route path="/cart">
-          <Cart cartItems={cartItems}/>
-        </Route>
-        <Route path="/buy">
-          <Buy cartItems={cartItems} clearCart={clearCart}/>
-        </Route>
+        {/*  <Route path="/cart">*/}
+        {/*    <Cart cartItems={cartItems}/>*/}
+        {/*  </Route>*/}
+        {/*  <Route path="/buy">*/}
+        {/*    <Buy cartItems={cartItems} clearCart={clearCart}/>*/}
+        {/*  </Route>*/}
       </Switch>
       <Footer/>
     </Router>

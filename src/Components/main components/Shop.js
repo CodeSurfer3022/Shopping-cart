@@ -5,12 +5,13 @@ import ShopItemCard from "../render components/ShopItemCard";
 function Shop(props) {
   const {cartItems, shopItems} = props;
 
-  const shopItemCards = shopItemsArray.map(shopItem => <ShopItemCard
+  console.log(shopItems, cartItems);
+  const shopItemCards = shopItems.map(shopItem => <ShopItemCard
     key={shopItem.id}
     values={shopItem}
-    cartItems={cartItemsArray}
-    updateCart={updateCart}
-    addToCart={addToCart}
+    cartItems={cartItems}
+    updateCart={props.updateCart}
+    addToCart={props.addToCart}
   />);
 
   if (Array.isArray(cartItems) && cartItems.length) {
@@ -18,7 +19,7 @@ function Shop(props) {
       <div className="shop">
         <h1>this is shop</h1>
         <div>
-          {shopItems}
+          {shopItemCards}
         </div>
         <Link to="/cart">
           <button>Go to cart</button>
@@ -33,7 +34,7 @@ function Shop(props) {
     <div className="shop">
       <h1>this is shop</h1>
       <div>
-        {shopItems}
+        {shopItemCards}
       </div>
     </div>
   )
