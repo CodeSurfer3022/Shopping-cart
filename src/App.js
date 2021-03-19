@@ -8,7 +8,7 @@ import Footer from "./Components/additional components/Footer";
 import Home from "./Components/main components/Home";
 import Shop from "./Components/main components/Shop";
 import Cart from "./Components/main components/Cart";
-// import Buy from "./Components/main components/Buy";
+import Buy from "./Components/main components/Buy";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -53,15 +53,18 @@ function App() {
             updateCart={updateCart}
           />
         </Route>
-          <Route path="/cart">
-            <Cart
-              cartItems={cartItems}
-              updateCart={updateCart}
-            />
-          </Route>
-        {/*  <Route path="/buy">*/}
-        {/*    <Buy cartItems={cartItems} clearCart={clearCart}/>*/}
-        {/*  </Route>*/}
+        <Route path="/cart">
+          <Cart
+            cartItems={cartItems}
+            updateCart={updateCart}
+          />
+        </Route>
+        <Route path="/buy">
+          <Buy
+            cartItems={cartItems}
+            clearCart={clearCart}
+          />
+        </Route>
       </Switch>
       <Footer/>
     </Router>

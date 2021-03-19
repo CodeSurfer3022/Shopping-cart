@@ -1,34 +1,39 @@
-import React from "react";
-import BuyItemCard from "../render components/BuyItemCard";
+import React, {useRef, useState} from "react";
+import {Link} from "react-router-dom";
+import AddressCard from "../render components/AddressCard";
 
 function Buy(props) {
-    const {cartItems} = props;
+  const [addresses, setAddress] = useState([]);
+  const addressFormRef = useRef();
 
-    const buyItemCards = cartItems.map(cartItem => <BuyItemCard
-        key={cartItem.id}
-        values={cartItem}
-    />);
+  const addressCards = addresses.map((address, index) =>
+    <AddressCard key={index} address={address}/>)
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        props.clearCart();
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const address = addressFormRef.current.address.value;
+    setAddress((prevAddress) => {
+      return [...prevAddress, address];
+    });
+    // props.clearCart();
+  }
 
-    const total = cartItems.reduce((acc, cur) => acc + (cur.quantity * cur.price), 0)
-    return(
-        <div>
-            <h2>Under construction</h2>
-            {buyItemCards}
-            <p>Total is {total}</p>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Address
-                    <input/>
-                </label>
-                <button>Confirm</button>
-            </form>
-        </div>
-    )
+  return (
+    <div>
+      <Link to="/cart">
+        <h2>Cancel</h2>
+      </Link>
+      <form onSubmit={handleSubmit} name="addressForm" ref={addressFormRef}>
+        <p>Select a delivery address</p>
+        {addressCards}
+        <label>
+          <input name="address" placeholder="Enter your address"/>
+        </label>
+        <button>Add new address</button>
+        <button>Confirm</button>
+      </form>
+    </div>
+  )
 }
 
 export default Buy;
