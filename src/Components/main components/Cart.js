@@ -4,13 +4,13 @@ import CartItemCard from "../render components/CartItemCard";
 
 function Cart(props) {
 
-  const {cartItems, cartItemCards} = props;
+  const {cartItems} = props;
 
-  const cartItemCards = cartItemsArray.map(cartItem => <CartItemCard
+  const cartItemCards = cartItems.map(cartItem => <CartItemCard
     key={cartItem.id}
     values={cartItem}
-    cartItems={cartItemsArray}
-    updateCart={updateCart}
+    cartItems={cartItems}
+    updateCart={props.updateCart}
   />);
 
   const total = cartItems.reduce((acc, cur) => acc + (cur.quantity * cur.price), 0)
