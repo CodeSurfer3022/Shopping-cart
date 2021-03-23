@@ -4,7 +4,7 @@ import OrderSummary from "../summary components/OrderSummary";
 import PaymentSummary from "../summary components/PaymentSummary";
 import AddressSummary from "../summary components/AddressSummary";
 
-function PlaceOrder() {
+function PlaceOrder(props) {
   return (
     <div>
       <Link to="/payment">
@@ -12,7 +12,7 @@ function PlaceOrder() {
       </Link>
 
       <h2>Place your order</h2>
-      <OrderSummary />
+      <OrderSummary cartItems={props.cartItems}/>
       <PaymentSummary />
       <AddressSummary />
 

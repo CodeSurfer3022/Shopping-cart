@@ -41,6 +41,7 @@ function App() {
   }
 
   const cartCount = cartItems.reduce((acc, cur) => acc + cur.quantity, 0);
+  const total = cartItems.reduce((acc, cur) => acc + (cur.quantity * cur.price), 0)
 
   return (
     <Router>
@@ -58,19 +59,24 @@ function App() {
         <Route path="/cart">
           <Cart
             cartItems={cartItems}
+            total={total}
             updateCart={updateCart}
           />
         </Route>
         <Route path="/buy">
           <Buy
             cartItems={cartItems}
+            total={total}
           />
         </Route>
         <Route path="/payment">
-          <Payment />
+          <Payment total={total}/>
         </Route>
         <Route path="/placeorder">
-          <PlaceOrder/>
+          <PlaceOrder
+            cartItems={cartItems}
+            total={total}
+          />
         </Route>
       </Switch>
       <Footer/>

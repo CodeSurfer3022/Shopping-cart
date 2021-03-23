@@ -2,7 +2,7 @@ import React, {useRef, useState} from "react";
 import {Link} from "react-router-dom";
 import PaymentCard from "../render components/PaymentCard";
 
-function Payment() {
+function Payment(props) {
   const [payments, setPayments] = useState([]);
   const [payment, setPayment] = useState('');
 
@@ -51,6 +51,7 @@ function Payment() {
       <Link to="/buy">
         <i className="fas fa-arrow-left"></i>
       </Link>
+      <h1>Pay {props.total}</h1>
       <h2>Select a payment method</h2>
       <div className="payments">
         {paymentCards}

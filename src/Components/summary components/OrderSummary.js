@@ -1,9 +1,15 @@
 import React from "react";
 
-function OrderSummary() {
+function OrderSummary(props) {
+  const items = props.cartItems.map(item => <tr key={item.id}>
+    <td>{item.name}</td>
+    <td>{item.price}</td>
+    <td>{item.quantity}</td>
+    <td>{item.price * item.quantity}</td>
+  </tr>)
+
   return(
     <div>
-      <p>Ship to: </p>
       <table>
         <tbody>
         <tr>
@@ -12,14 +18,11 @@ function OrderSummary() {
           <th>Quantity</th>
           <th>Total</th>
         </tr>
+        {
+          items
+        }
         <tr>
-          <td>a</td>
-          <td>10</td>
-          <td>1</td>
-          <td>10</td>
-        </tr>
-        <tr>
-          <td>total 10</td>
+          <td>total {props.total}</td>
         </tr>
         </tbody>
       </table>
