@@ -5,7 +5,7 @@ function PaymentCard(props) {
   let selection
   if (props.payment.checked) {
     selection = (<div>
-      <Link to="/payment">
+      <Link to="/placeorder">
         <button>Pay</button>
       </Link>
       <button>Edit payment details</button>

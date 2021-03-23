@@ -10,7 +10,7 @@ import Shop from "./Components/main components/Shop";
 import Cart from "./Components/main components/Cart";
 import Buy from "./Components/main components/Buy";
 import Payment from "./Components/main components/Payment";
-import Confirmation from "./Components/main components/Confirmation";
+import PlaceOrder from "./Components/main components/PlaceOrder";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -69,8 +69,8 @@ function App() {
         <Route path="/payment">
           <Payment />
         </Route>
-        <Route>
-          <Confirmation />
+        <Route path="/placeorder">
+          <PlaceOrder/>
         </Route>
       </Switch>
       <Footer/>
