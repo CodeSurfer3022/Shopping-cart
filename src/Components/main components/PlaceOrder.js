@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import OrderSummary from "../summary components/OrderSummary";
+import PaymentSummary from "../summary components/PaymentSummary";
 
 function PlaceOrder() {
   return (
@@ -10,8 +11,7 @@ function PlaceOrder() {
       </Link>
       <h2>Place your order</h2>
       <OrderSummary />
-      <div className="paymentSummary">
-      </div>
+      <PaymentSummary />
       <div className="addressSummary">
       </div>
       <div className="ItemsSummary">
