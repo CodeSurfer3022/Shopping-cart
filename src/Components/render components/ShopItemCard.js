@@ -14,7 +14,7 @@ function ShopItemCard(props) {
       <div>
         <div className="shop-card">
           <p>{props.values.name}</p>
-          <p>{props.values.price}</p>
+          <p>{props.values.cost}</p>
           <div>
             <button onClick={() => props.updateCart(itemIndex, '-')}>-</button>
             <p>{cartItem.quantity}</p>

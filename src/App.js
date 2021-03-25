@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import shopItems from './ShopItems.json';
 
 import Header from "./Components/additional components/Header";
 import Footer from "./Components/additional components/Footer";
@@ -14,7 +13,21 @@ import PlaceOrder from "./Components/main components/PlaceOrder";
 import Confirmation from "./Components/main components/Confirmation";
 
 function App() {
+  const [shopItems, setShopItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+      fetchItems();
+  }, [])
+
+  const fetchItems = async () => {
+    const data = await fetch('https://fortnite-api.theapinetwork.com/items/list');
+    const response = await data.json();
+    const items = response.data.slice(0,100);
+    console.log(items);
+    setShopItems(items)
+
+  }
 
   const addToCart = (id) => {
     const shopItem = shopItems[id - 1];
