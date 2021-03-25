@@ -8,6 +8,7 @@ function Shop(props) {
   console.log(shopItems, cartItems);
   const shopItemCards = shopItems.map(shopItem => <ShopItemCard
     key={shopItem.itemId}
+    id={shopItem.itemId}
     values={shopItem.item}
     cartItems={cartItems}
     updateCart={props.updateCart}

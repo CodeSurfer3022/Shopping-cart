@@ -1,34 +1,26 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function ShopItemCard(props) {
   const cartItems = props.cartItems;
-  const id = props.values.id;
+  const id = props.id;
 
   const itemIndex = cartItems.findIndex(cartItem => cartItem.id === id);
-  console.log(itemIndex);
+  const cartItem = cartItems[itemIndex];
 
-  console.log(id, cartItems);
-  if (itemIndex >= 0) {
-    const cartItem = cartItems[itemIndex];
-    return (
-      <div>
-        <div className="shop-card">
-          <p>{props.values.name}</p>
-          <p>{props.values.cost}</p>
-          <div>
-            <button onClick={() => props.updateCart(itemIndex, '-')}>-</button>
-            <p>{cartItem.quantity}</p>
-            <button onClick={() => props.updateCart(itemIndex, '+')}>+</button>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  const quantityComponent = itemIndex >= 0 ?  <div>
+    <button onClick={() => props.updateCart(itemIndex, '-')}>-</button>
+    <p>{cartItem.quantity}</p>
+    <button onClick={() => props.updateCart(itemIndex, '+')}>+</button>
+  </div> : <button onClick={() => props.addToCart(id)}>Add to cart</button>;
+
   return (
     <div className="shop-card">
-      <p>{props.values.name}</p>
-      <p>{props.values.price}</p>
-      <button onClick={() => props.addToCart(id)}>Add to cart</button>
+      <Link to={`shop/${id}`}>
+        <p>{props.values.name}</p>
+      </Link>
+      <p>{props.values.cost}</p>
+      {quantityComponent}
     </div>
   )
 }

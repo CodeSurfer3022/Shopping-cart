@@ -11,6 +11,7 @@ import Buy from "./Components/main components/Buy";
 import Payment from "./Components/main components/Payment";
 import PlaceOrder from "./Components/main components/PlaceOrder";
 import Confirmation from "./Components/main components/Confirmation";
+import ShopItemDetails from "./Components/render components/ShopItemDetails";
 
 function App() {
   const [shopItems, setShopItems] = useState([]);
@@ -30,9 +31,11 @@ function App() {
   }
 
   const addToCart = (id) => {
-    const shopItem = shopItems[id - 1];
-    shopItem.quantity = 1;
-    setCartItems([...cartItems, shopItem]);
+    console.log(shopItems.filter(item => item.itemId === id));
+
+    // const shopItem = shopItems[id - 1];
+    // shopItem.quantity = 1;
+    // setCartItems([...cartItems, shopItem]);
   }
 
   const updateCart = (index, op) => {
@@ -128,13 +131,15 @@ function App() {
       <Header cartCount={cartCount}/>
       <Switch>
         <Route exact path="/" component={Home}/>
-        <Route path="/shop">
+        <Route exact path="/shop">
           <Shop
             shopItems={shopItems}
             cartItems={cartItems}
             addToCart={addToCart}
             updateCart={updateCart}
           />
+        </Route>
+        <Route path="/shop/:id" component={ShopItemDetails}>
         </Route>
         <Route path="/cart">
           <Cart
