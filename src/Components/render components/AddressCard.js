@@ -6,14 +6,14 @@ function AddressCard(props) {
   if(props.address.checked) {
     selection = (<div>
       <Link to="/payment">
-        <button>Deliver to this address</button>
+        <button onClick={props.selectAddress}>Deliver to this address</button>
       </Link>
       <button>Edit address</button>
     </div>)
   }
 
   return (
-    <div>
+    <div className="address">
       <input
         type="radio"
         name="address"
@@ -21,7 +21,7 @@ function AddressCard(props) {
         checked={props.address.checked}
         onChange={() => props.handleChange(props.index)}
       />
-      <p className="address">{props.address.address}</p>
+      <p>{props.address.address}</p>
       {selection}
     </div>
   )

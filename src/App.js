@@ -43,6 +43,39 @@ function App() {
   const cartCount = cartItems.reduce((acc, cur) => acc + cur.quantity, 0);
   const total = cartItems.reduce((acc, cur) => acc + (cur.quantity * cur.price), 0)
 
+  const [addresses, setAddresses] = useState([]);
+  const [deliveryAddress, setDeliveryAddress] = useState('');
+
+  const selectDeliveryAddress = (event) => {
+    event.preventDefault();
+    const div = event.target.closest('.address');
+    const address = div.querySelector('p').textContent;
+    setDeliveryAddress(address);
+  }
+
+  const addAddress = (event) => {
+    event.preventDefault();
+    const form = event.target.closest('form');
+    const address = form.address.value;
+    console.log(address);
+
+    setAddresses((prevAddress) => {
+      let checked = prevAddress.length === 0;
+      if(checked) setDeliveryAddress(address);
+      return [...prevAddress, {address, checked}];
+    });
+  }
+
+  const addressHandleChange = (index) => {
+    setAddresses(prevAddresses => {
+      const newAddresses = prevAddresses.slice();
+      newAddresses.forEach(address => address.checked = false);
+      const address = newAddresses[index];
+      address.checked = true;
+      return newAddresses;
+    })
+  }
+
   return (
     <Router>
       <Header cartCount={cartCount}/>
@@ -67,6 +100,10 @@ function App() {
           <Buy
             cartItems={cartItems}
             total={total}
+            addresses={addresses}
+            handleChange={addressHandleChange}
+            addAddress={addAddress}
+            selectDeliveryAddress={selectDeliveryAddress}
           />
         </Route>
         <Route path="/payment">
