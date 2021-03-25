@@ -1,10 +1,10 @@
 import React from "react";
 
-function AddressSummary() {
+function AddressSummary(props) {
   return(
     <div>
       <h3>Deliver to</h3>
-      <p>address</p>
+      <p>{props.address}</p>
     </div>
   )
 }

@@ -152,6 +152,8 @@ function App() {
           <PlaceOrder
             cartItems={cartItems}
             total={total}
+            payment={selectedPayment}
+            address={deliveryAddress}
           />
         </Route>
       </Switch>

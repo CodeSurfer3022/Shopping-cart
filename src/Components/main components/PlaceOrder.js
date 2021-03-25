@@ -12,9 +12,12 @@ function PlaceOrder(props) {
       </Link>
 
       <h2>Place your order</h2>
-      <OrderSummary cartItems={props.cartItems}/>
-      <PaymentSummary />
-      <AddressSummary />
+      <OrderSummary
+        cartItems={props.cartItems}
+        total={props.total}
+      />
+      <PaymentSummary payment={props.payment}/>
+      <AddressSummary address={props.address}/>
 
       <Link to="/cart">
         <p>Cancel and go to cart</p>

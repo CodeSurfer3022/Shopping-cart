@@ -1,10 +1,10 @@
 import React from "react";
 
-function PaymentSummary() {
+function PaymentSummary(props) {
   return(
     <div>
       <h2>Pay with</h2>
-      <p>Payment method</p>
+      <p>{props.payment}</p>
     </div>
   )
 }
