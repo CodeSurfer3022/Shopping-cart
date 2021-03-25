@@ -11,6 +11,7 @@ import Cart from "./Components/main components/Cart";
 import Buy from "./Components/main components/Buy";
 import Payment from "./Components/main components/Payment";
 import PlaceOrder from "./Components/main components/PlaceOrder";
+import Confirmation from "./Components/main components/Confirmation";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -43,8 +44,8 @@ function App() {
   const cartCount = cartItems.reduce((acc, cur) => acc + cur.quantity, 0);
   const total = cartItems.reduce((acc, cur) => acc + (cur.quantity * cur.price), 0)
 
-  const [addresses, setAddresses] = useState([]);
-  const [deliveryAddress, setDeliveryAddress] = useState('');
+  const [addresses, setAddresses] = useState([{address: 'Home', checked: true}]);
+  const [deliveryAddress, setDeliveryAddress] = useState('Home');
 
   const selectDeliveryAddress = (event) => {
     event.preventDefault();
@@ -76,8 +77,8 @@ function App() {
     })
   }
 
-  const [payments, setPayments] = useState([]);
-  const [selectedPayment, setSelectedPayment] = useState('');
+  const [payments, setPayments] = useState([{payment: 'UPI', checked: true}]);
+  const [selectedPayment, setSelectedPayment] = useState('UPI');
 
   const selectPayment = (event) => {
     event.preventDefault();
@@ -95,7 +96,7 @@ function App() {
     setPayments((prevPayment) => {
       let checked = prevPayment.length === 0;
       if(checked) setSelectedPayment(payment);
-      return [...prevPayment, {payment, checked: checked}];
+      return [...prevPayment, {payment, checked}];
     });
   }
 
@@ -154,7 +155,11 @@ function App() {
             total={total}
             payment={selectedPayment}
             address={deliveryAddress}
+            clearCart={clearCart}
           />
+        </Route>
+        <Route path="/confirmation">
+          <Confirmation />
         </Route>
       </Switch>
       <Footer/>

@@ -22,7 +22,9 @@ function PlaceOrder(props) {
       <Link to="/cart">
         <p>Cancel and go to cart</p>
       </Link>
-      <button>Place order and pay</button>
+      <Link to="/confirmation">
+        <button onClick={props.clearCart}>Place order and pay</button>
+      </Link>
     </div>
   )
 }
