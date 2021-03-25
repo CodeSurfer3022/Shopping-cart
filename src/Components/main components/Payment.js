@@ -3,47 +3,13 @@ import {Link} from "react-router-dom";
 import PaymentCard from "../render components/PaymentCard";
 
 function Payment(props) {
-  const [payments, setPayments] = useState([]);
-  const [payment, setPayment] = useState('');
-
-  const paymentsFormRef = useRef();
-
-  const selectPayment = (event) => {
-    event.preventDefault();
-    const div = event.target.parentNode;
-    const payment = div.querySelector('.payment').textContent;
-    setPayment(payment);
-  }
-
-  const addPayment = (event) => {
-    event.preventDefault();
-    const payment = paymentsFormRef.current.payment.value;
-
-    console.log(payment)
-    setPayments((prevPayment) => {
-      let checked = prevPayment.length === 0;
-      if(checked) setPayment(payment);
-      return [...prevPayment, {payment, checked: checked}];
-    });
-  }
-
-  const handleChange = (index) => {
-    setPayments(prevPayments => {
-      const newPayments = prevPayments.slice();
-      newPayments.forEach(payment => payment.checked = false);
-      const payment = newPayments[index];
-      payment.checked = true;
-      return newPayments;
-    })
-  }
-
-  const paymentCards = payments.map((payment, index) =>
+  const paymentCards = props.payments.map((payment, index) =>
     <PaymentCard
       key={index}
       index={index}
       payment={payment}
-      selectPayment={selectPayment}
-      handleChange={handleChange}
+      selectPayment={props.selectPayment}
+      handleChange={props.handleChange}
     />)
 
   return (
@@ -56,12 +22,13 @@ function Payment(props) {
       <div className="payments">
         {paymentCards}
       </div>
-      <form name="paymentsForm" ref={paymentsFormRef}>
+      <form name="paymentsForm">
         <label>
           <input name="payment" placeholder="Enter your Payment"/>
         </label>
-        <button onClick={addPayment}>Add new Payment</button>
+        <button onClick={props.addPayment}>Add new Payment</button>
       </form>
+
     </div>
   )
 }

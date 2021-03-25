@@ -76,6 +76,39 @@ function App() {
     })
   }
 
+  const [payments, setPayments] = useState([]);
+  const [selectedPayment, setSelectedPayment] = useState('');
+
+  const selectPayment = (event) => {
+    event.preventDefault();
+    const div = event.target.parentNode;
+    const payment = div.querySelector('.payment').textContent;
+    setSelectedPayment(payment);
+  }
+
+  const addPayment = (event) => {
+    event.preventDefault();
+    const form = event.target.closest('form');
+    const payment = form.payment.value;
+
+    console.log(payment)
+    setPayments((prevPayment) => {
+      let checked = prevPayment.length === 0;
+      if(checked) setSelectedPayment(payment);
+      return [...prevPayment, {payment, checked: checked}];
+    });
+  }
+
+  const paymentHandleChange = (index) => {
+    setPayments(prevPayments => {
+      const newPayments = prevPayments.slice();
+      newPayments.forEach(payment => payment.checked = false);
+      const payment = newPayments[index];
+      payment.checked = true;
+      return newPayments;
+    })
+  }
+
   return (
     <Router>
       <Header cartCount={cartCount}/>
@@ -107,7 +140,13 @@ function App() {
           />
         </Route>
         <Route path="/payment">
-          <Payment total={total}/>
+          <Payment
+            total={total}
+            payments={payments}
+            handleChange={paymentHandleChange}
+            addPayment={addPayment}
+            selectPayment={selectPayment}
+          />
         </Route>
         <Route path="/placeorder">
           <PlaceOrder
