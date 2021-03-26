@@ -139,8 +139,14 @@ function App() {
             updateCart={updateCart}
           />
         </Route>
-        <Route path="/shop/:id" component={ShopItemDetails}>
-        </Route>
+        <Route path="/shop/:id" render={(props) => (
+          <ShopItemDetails
+            {...props}
+            cartItems={cartItems}
+            addToCart={addToCart}
+            updateCart={updateCart}
+          />
+        )} />
         <Route path="/cart">
           <Cart
             cartItems={cartItems}
