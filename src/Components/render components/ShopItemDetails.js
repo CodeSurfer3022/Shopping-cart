@@ -23,7 +23,7 @@ function ShopItemDetails(props) {
 
 
   const fetchItem = async () => {
-    const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${props.match.params.id}`);
+    const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${props.match.params.id}`, {mode: 'cors'});
     const response = await data.json();
     const item = response.data;
 
@@ -42,6 +42,12 @@ function ShopItemDetails(props) {
     <div>
       <h1>{item.item.name}</h1>
       <img src={item.item.images.icon} alt={item.name}/>
+      <div>
+        <p>{item.item.rarity}</p>
+        <p>{item.item.ratings.avgStars}</p>
+        <p>{item.item.ratings.numberVotes} ratings</p>
+      </div>
+      {quantityComponent}
     </div>
   )
 }
