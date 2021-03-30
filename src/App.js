@@ -27,15 +27,14 @@ function App() {
     const items = response.data.slice(0,100);
     console.log(items);
     setShopItems(items)
-
   }
 
   const addToCart = (id) => {
-    console.log(shopItems.filter(item => item.itemId === id));
+    const shopItem = shopItems.filter(item => item.itemId === id)[0];
 
-    // const shopItem = shopItems[id - 1];
-    // shopItem.quantity = 1;
-    // setCartItems([...cartItems, shopItem]);
+    console.log(shopItem);
+    shopItem.quantity = 1;
+    setCartItems([...cartItems, shopItem]);
   }
 
   const updateCart = (index, op) => {

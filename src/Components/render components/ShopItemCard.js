@@ -2,10 +2,11 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 function ShopItemCard(props) {
+  console.log(props);
   const cartItems = props.cartItems;
   const id = props.id;
 
-  const itemIndex = cartItems.findIndex(cartItem => cartItem.id === id);
+  const itemIndex = cartItems.findIndex(cartItem => cartItem.itemId === id);
   const cartItem = cartItems[itemIndex];
 
   const quantityComponent = itemIndex >= 0 ?  <div>

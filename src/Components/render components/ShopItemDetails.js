@@ -11,7 +11,7 @@ function ShopItemDetails(props) {
   const cartItems = props.cartItems;
   const id = props.match.params.id;
 
-  const itemIndex = cartItems.findIndex(cartItem => cartItem.id === id);
+  const itemIndex = cartItems.findIndex(cartItem => cartItem.itemId === id);
   const cartItem = cartItems[itemIndex];
 
   const quantityComponent = itemIndex >= 0 ?  <div>
@@ -19,7 +19,6 @@ function ShopItemDetails(props) {
     <p>{cartItem.quantity}</p>
     <button onClick={() => props.updateCart(itemIndex, '+')}>+</button>
   </div> : <button onClick={() => props.addToCart(id)}>Add to cart</button>;
-
 
 
   const fetchItem = async () => {
