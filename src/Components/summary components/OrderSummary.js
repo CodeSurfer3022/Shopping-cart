@@ -1,11 +1,11 @@
 import React from "react";
 
 function OrderSummary(props) {
-  const items = props.cartItems.map(item => <tr key={item.id}>
-    <td>{item.name}</td>
-    <td>{item.price}</td>
+  const items = props.cartItems.map(item => <tr key={item.itemId}>
+    <td>{item.item.name}</td>
+    <td>{item.item.cost}</td>
     <td>{item.quantity}</td>
-    <td>{item.price * item.quantity}</td>
+    <td>{item.item.cost * item.quantity}</td>
   </tr>)
 
   return(
