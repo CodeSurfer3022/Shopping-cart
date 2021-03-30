@@ -18,16 +18,16 @@ function Shop(props) {
   if (Array.isArray(cartItems) && cartItems.length) {
     return (
       <div className="shop">
-        <h1>this is shop</h1>
-        <div>
-          {shopItemCards}
-        </div>
         <Link to="/cart">
           <button>Go to cart</button>
         </Link>
         <Link to="/buy">
           <button>Proceed to buy</button>
         </Link>
+        <h1>this is shop</h1>
+        <div>
+          {shopItemCards}
+        </div>
       </div>
     )
   }

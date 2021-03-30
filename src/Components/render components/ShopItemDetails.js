@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 
 function ShopItemDetails(props) {
   console.log(props)
@@ -14,11 +15,21 @@ function ShopItemDetails(props) {
   const itemIndex = cartItems.findIndex(cartItem => cartItem.itemId === id);
   const cartItem = cartItems[itemIndex];
 
-  const quantityComponent = itemIndex >= 0 ?  <div>
-    <button onClick={() => props.updateCart(itemIndex, '-')}>-</button>
-    <p>{cartItem.quantity}</p>
-    <button onClick={() => props.updateCart(itemIndex, '+')}>+</button>
-  </div> : <button onClick={() => props.addToCart(id)}>Add to cart</button>;
+  const quantityComponent = itemIndex >= 0 ?
+    <div>
+      <button onClick={() => props.updateCart(itemIndex, '-')}>-</button>
+      <p>{cartItem.quantity}</p>
+      <button onClick={() => props.updateCart(itemIndex, '+')}>+</button>
+      <div>
+        <Link to="/cart">
+          <button>Go to cart</button>
+        </Link>
+        <Link to="/buy">
+          <button>Proceed to buy</button>
+        </Link>
+      </div>
+    </div> :
+    <button onClick={() => props.addToCart(id)}>Add to cart</button>;
 
 
   const fetchItem = async () => {
