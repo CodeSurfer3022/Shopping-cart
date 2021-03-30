@@ -7,7 +7,7 @@ function Cart(props) {
   const {cartItems} = props;
 
   const cartItemCards = cartItems.map(cartItem => <CartItemCard
-    key={cartItem.id}
+    key={cartItem.itemId}
     values={cartItem}
     cartItems={cartItems}
     updateCart={props.updateCart}

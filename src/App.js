@@ -57,7 +57,7 @@ function App() {
   }
 
   const cartCount = cartItems.reduce((acc, cur) => acc + cur.quantity, 0);
-  const total = cartItems.reduce((acc, cur) => acc + (cur.quantity * cur.price), 0)
+  const total = cartItems.reduce((acc, cur) => acc + (cur.quantity * cur.item.cost), 0)
 
   const [addresses, setAddresses] = useState([{address: 'Home', checked: true}]);
   const [deliveryAddress, setDeliveryAddress] = useState('Home');

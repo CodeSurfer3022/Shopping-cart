@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 function ShopItemCard(props) {
-  console.log(props);
   const cartItems = props.cartItems;
   const id = props.id;
 
