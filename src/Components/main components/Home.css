@@ -1,0 +1,17 @@
+.home {
+    height: 100px;
+    background: lightyellow;
+    flex: 2;
+}
+
+.home a {
+    color: #0b0b3b;
+}
+
+.home button {
+    height: 50px;
+    background: white;
+    font-size: 2em;
+    color: #1b1b72;
+    border: none;
+}

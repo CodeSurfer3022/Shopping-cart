@@ -1,12 +1,13 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import './Home.css'
 
 function Home() {
     return(
         <div className="home">
-            <p>this is home</p>
+            <h2>Are you a Knight? Welcome to Fort night</h2>
             <Link to="/shop">
-              <p>Proceed to shop</p>
+              <button>Purchase artefacts</button>
             </Link>
         </div>
     )

@@ -1,15 +1,13 @@
 body {
     font-family: "Helvetica Neue", sans-serif;
 }
+
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 a {
     text-decoration: none;
-    color: white;
-}
-
-.shop-card {
-    background: azure;
-}
-
-.cart-card {
-    background: aliceblue;
 }

@@ -29,3 +29,7 @@ span {
     margin-left: -6px;
     color: #2525c4;
 }
+
+header a {
+    color: white;
+}
