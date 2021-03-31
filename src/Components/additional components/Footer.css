@@ -1,7 +1,6 @@
 footer {
     position: absolute;
     bottom: 0;
-    height: 100px;
     width: 100%;
     background: linear-gradient(30deg, blue, darkblue, #1b1b72);
     text-align: center;
@@ -9,11 +8,18 @@ footer {
 
 footer p {
     margin-top: 10px;
-    font-size: 1.5em;
     color: deepskyblue;
 }
 
-footer i {
+footer a {
+    color: white;
+}
+
+.fa-code {
     margin: 10px;
     color: royalblue;
+}
+
+.fa-heart {
+    color: #e25555;
 }

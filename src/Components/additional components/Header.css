@@ -6,12 +6,12 @@ header {
 }
 
 h1 {
-    font-size: 5em;
+    font-size: 2em;
     margin: 0 0 5px 10px;
 }
 
 .shop {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .shopping-bag {
@@ -21,12 +21,10 @@ h1 {
 
 span {
     position: absolute;
-    font-size: 1.5rem;
-    font-weight: bold;
     top: 50%;
     left: 50%;
-    margin-top: -5px;
-    margin-left: -6px;
+    margin-top: -3px;
+    margin-left: -4px;
     color: #2525c4;
 }
 

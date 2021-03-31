@@ -13,7 +13,7 @@ function Header(props) {
             </div>
             <div className="shopping-bag">
                 <Link to="/cart">
-                  <i className="fas fa-shopping-bag fa-3x"></i>
+                  <i className="fas fa-shopping-bag fa-2x"></i>
                 </Link>
                 <span>{props.cartCount}</span>
             </div>
