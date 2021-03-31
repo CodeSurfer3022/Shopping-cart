@@ -1,21 +1,19 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import './Header.css'
 
 function Header(props) {
     return(
         <header>
             <Link to="/">
-              <h2>ApaNa</h2>
+              <h1>Fort Night</h1>
             </Link>
-            <div className="searchbar" />
-            <div className="country" />
-            <div className="greeting">Namaste, Chandra!</div>
             <div>
-                <Link to="/shop">Shop</Link>
+                <Link to="/shop"><p className="shop">Shop</p></Link>
             </div>
             <div className="shopping-bag">
                 <Link to="/cart">
-                  <i className="fas fa-shopping-bag"></i>
+                  <i className="fas fa-shopping-bag fa-3x"></i>
                 </Link>
                 <span>{props.cartCount}</span>
             </div>

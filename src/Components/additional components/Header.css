@@ -1,0 +1,31 @@
+header {
+    background: linear-gradient(-45deg, #0b0b3b, midnightblue, #2828ab);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 5em;
+    margin: 0 0 5px 10px;
+}
+
+.shop {
+    font-size: 2em;
+}
+
+.shopping-bag {
+    margin-right: 20px;
+    position: relative;
+}
+
+span {
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    margin-top: -5px;
+    margin-left: -6px;
+    color: #2525c4;
+}

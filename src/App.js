@@ -130,6 +130,7 @@ function App() {
       <Header cartCount={cartCount}/>
       <Switch>
         <Route exact path="/" component={Home}/>
+        <Route path="/Shopping-cart" component={Home}/>
         <Route exact path="/shop">
           <Shop
             shopItems={shopItems}
