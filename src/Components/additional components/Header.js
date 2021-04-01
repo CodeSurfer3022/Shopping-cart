@@ -9,13 +9,13 @@ function Header(props) {
               <h1>Fort Night</h1>
             </Link>
             <div>
-                <Link to="/shop"><p className="shop">Shop</p></Link>
+                <Link to="/shop"><p className="shopIcon">Shop</p></Link>
             </div>
             <div className="shopping-bag">
                 <Link to="/cart">
                   <i className="fas fa-shopping-bag fa-2x"></i>
+                  <span>{props.cartCount}</span>
                 </Link>
-                <span>{props.cartCount}</span>
             </div>
         </header>
     )
