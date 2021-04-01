@@ -18,13 +18,14 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-      fetchItems();
+    fetchItems();
   }, [])
 
   const fetchItems = async () => {
     const data = await fetch('https://fortnite-api.theapinetwork.com/items/list');
     const response = await data.json();
-    const items = response.data.slice(0,100);
+    let items = response.data.slice(0, 100);
+    items = items.filter(item => item.item.cost != 0).slice(0, 20);
     console.log(items);
     setShopItems(items)
   }
@@ -77,7 +78,7 @@ function App() {
 
     setAddresses((prevAddress) => {
       let checked = prevAddress.length === 0;
-      if(checked) setDeliveryAddress(address);
+      if (checked) setDeliveryAddress(address);
       return [...prevAddress, {address, checked}];
     });
   }
@@ -110,7 +111,7 @@ function App() {
     console.log(payment)
     setPayments((prevPayment) => {
       let checked = prevPayment.length === 0;
-      if(checked) setSelectedPayment(payment);
+      if (checked) setSelectedPayment(payment);
       return [...prevPayment, {payment, checked}];
     });
   }
@@ -146,7 +147,7 @@ function App() {
             addToCart={addToCart}
             updateCart={updateCart}
           />
-        )} />
+        )}/>
         <Route path="/cart">
           <Cart
             cartItems={cartItems}
@@ -183,7 +184,7 @@ function App() {
           />
         </Route>
         <Route path="/confirmation">
-          <Confirmation />
+          <Confirmation/>
         </Route>
       </Switch>
       <Footer/>
