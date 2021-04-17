@@ -53,9 +53,12 @@ function ShopItemDetails(props) {
       <h1>{item.item.name}</h1>
       <img src={item.item.images.icon} alt={item.name}/>
       <div>
+        <p>{item.item.cost}</p>
         <p>{item.item.rarity}</p>
         <p>{item.item.ratings.avgStars}</p>
         <p>{item.item.ratings.numberVotes} ratings</p>
+        <p>{item.itemOccurrences.firstOccurrences}</p>
+        <p>{item.itemOccurrences.lastOccurrences}</p>
       </div>
       {quantityComponent}
     </div>

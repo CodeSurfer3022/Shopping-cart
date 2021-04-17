@@ -20,7 +20,7 @@ function ShopItemCard(props) {
     <button onClick={() => props.updateCart(itemIndex, '+')}>+</button>
   </div> : <button onClick={() => props.addToCart(id)}>Add to cart</button>;
 
-  const fetchItem = async (id) => {
+  const fetchItem = async () => {
     const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?id=${id}`, {mode: 'cors'});
     const response = await data.json();
     const item = response.data;
