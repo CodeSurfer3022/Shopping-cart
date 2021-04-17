@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import ShopItemCard from "../render components/ShopItemCard";
+import './Shop.css';
 
 function Shop(props) {
   const {cartItems, shopItems} = props;
@@ -15,26 +16,20 @@ function Shop(props) {
     addToCart={props.addToCart}
   />);
 
-  if (Array.isArray(cartItems) && cartItems.length) {
-    return (
-      <div className="shop">
-        <Link to="/cart">
-          <button>Go to cart</button>
-        </Link>
-        <Link to="/buy">
-          <button>Proceed to buy</button>
-        </Link>
-        <h1>this is shop</h1>
-        <div>
-          {shopItemCards}
-        </div>
-      </div>
-    )
-  }
+  const links = Array.isArray(cartItems) && cartItems.length ?
+  <div className="shopLinks">
+    <Link to="/cart">
+      <button>Go to cart</button>
+    </Link>
+    <Link to="/buy">
+      <button>Proceed to buy</button>
+    </Link>
+  </div> : null
+
   return (
     <div className="shop">
-      <h1>this is shop</h1>
-      <div>
+      {links}
+      <div className="shopList">
         {shopItemCards}
       </div>
     </div>

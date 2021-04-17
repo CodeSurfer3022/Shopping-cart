@@ -1,0 +1,13 @@
+.shop {
+    flex: auto;
+    overflow-y: auto;
+}
+
+.shopList {
+    width: 80%;
+    height: 80%;
+    background: gold;
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(4, 1fr);
+}

@@ -8,8 +8,8 @@ function Header(props) {
             <Link to="/">
               <h1>Fort Night</h1>
             </Link>
-            <div>
-                <Link to="/shop"><p className="shopIcon">Shop</p></Link>
+            <div className="shopHeader">
+                <Link to="/shop"><p>Shop</p></Link>
             </div>
             <div className="shopping-bag">
                 <Link to="/cart">
