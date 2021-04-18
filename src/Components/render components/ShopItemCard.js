@@ -15,7 +15,7 @@ function ShopItemCard(props) {
   const itemIndex = cartItems.findIndex(cartItem => cartItem.itemId === id);
   const cartItem = cartItems[itemIndex];
 
-  const quantityComponent = itemIndex >= 0 ?  <div>
+  const quantityComponent = itemIndex >= 0 ?  <div className="changeQuantity">
     <button onClick={() => props.updateCart(itemIndex, '-')}>-</button>
     <p>{cartItem.quantity}</p>
     <button onClick={() => props.updateCart(itemIndex, '+')}>+</button>

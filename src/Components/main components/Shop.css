@@ -3,6 +3,25 @@
     overflow-y: auto;
 }
 
+.shopLinks {
+    height: 100px;
+    text-align: center;
+}
+
+.shopLinks button {
+    height: 50px;
+    margin: 20px;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 0 2px 2px darkgray;
+}
+
+.shopLinks button:hover {
+    box-shadow: 0 0 5px 5px gray;
+}
+
 .shopList {
     width: 1000px;
     background: gold;

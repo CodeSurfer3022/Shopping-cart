@@ -44,3 +44,7 @@
     align-self: stretch;
     justify-content: space-around;
 }
+
+.changeQuantity {
+    display: flex;
+}
