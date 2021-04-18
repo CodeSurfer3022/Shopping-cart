@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import './shopItemCard.css';
 
 function ShopItemCard(props) {
   const [item ,setItem] = useState();
@@ -39,18 +40,23 @@ function ShopItemCard(props) {
 
   return (
     <div className="shop-card">
-      <Link to={`shop/${id}`}>
-        <p>{props.values.name}</p>
-      </Link>
-      <p>{props.values.cost}</p>
-      <h1>{item.item.name}</h1>
-      <img src={item.item.images.icon} alt={item.name}/>
-      <div>
-        <p>{item.item.rarity}</p>
+      <div className="heading">
+        <Link to={`shop/${id}`} className="itemName">
+          <h3>{props.values.name}</h3>
+        </Link>
+      </div>
+      <div className="shopItemImage">
+        <img src={item.item.images.icon} alt={item.name}/>
+      </div>
+      <p className="rarity">{item.item.rarity}</p>
+      <div className="ratings">
         <p>{item.item.ratings.avgStars}</p>
         <p>{item.item.ratings.numberVotes} ratings</p>
       </div>
-      {quantityComponent}
+      <div className="price">
+        <p>${props.values.cost}</p>
+        {quantityComponent}
+      </div>
     </div>
   )
 }
