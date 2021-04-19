@@ -6,7 +6,6 @@ function ShopItemCard(props) {
   const [item ,setItem] = useState();
   useEffect(() => {
     fetchItem();
-
   }, [])
 
   const cartItems = props.cartItems;

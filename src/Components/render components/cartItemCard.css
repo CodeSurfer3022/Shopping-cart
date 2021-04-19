@@ -1,0 +1,13 @@
+.cart-card {
+    display: flex;
+}
+
+.cartImage {
+    height: 100px;
+    width: 100px;
+}
+
+.cartImage img {
+    max-width: 100%;
+    height: auto;
+}
