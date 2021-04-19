@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import CartItemCard from "../render components/CartItemCard";
+import './Cart.css'
 
 function Cart(props) {
 
@@ -15,18 +16,25 @@ function Cart(props) {
 
   if (Array.isArray(cartItems) && !cartItems.length) {
     return (
-      <div>
+      <div className="cart">
         <h3>Cart is empty</h3>
       </div>
     )
   }
   return (
-    <div>
-      <h1>This is cart</h1>
+    <div className="cart">
       <div className="cartList">
+        <div className="cartHeading">
+          <p>No.</p>
+          <p>Item</p>
+          <p>Price</p>
+          <p>Quantity</p>
+          <p>Total</p>
+        </div>
         {cartItemCards}
       </div>
       <p>Grand total is {props.total}</p>
+
       <Link to="buy">
         <button>Proceed to Buy</button>
       </Link>

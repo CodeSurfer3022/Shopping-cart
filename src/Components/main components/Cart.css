@@ -1,0 +1,9 @@
+.cart {
+    flex: 2;
+}
+
+.cartList {
+    width: 80%;
+    margin: 0 auto;
+    background: gold;
+}
