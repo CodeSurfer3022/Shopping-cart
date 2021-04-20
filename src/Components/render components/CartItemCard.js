@@ -3,7 +3,7 @@ import './cartItemCard.css';
 
 function CartItemCard(props) {
   console.log(props);
-  const [item ,setItem] = useState();
+  const [item, setItem] = useState();
   useEffect(() => {
     fetchItem();
   }, [])

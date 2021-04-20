@@ -24,13 +24,6 @@ function Cart(props) {
   return (
     <div className="cart">
       <div className="cartList">
-        <div className="cartHeading">
-          <p>No.</p>
-          <p>Item</p>
-          <p>Price</p>
-          <p>Quantity</p>
-          <p>Total</p>
-        </div>
         {cartItemCards}
       </div>
       <p>Grand total is {props.total}</p>
