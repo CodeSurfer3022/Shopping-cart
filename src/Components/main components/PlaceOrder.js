@@ -3,10 +3,11 @@ import {Link} from "react-router-dom";
 import OrderSummary from "../summary components/OrderSummary";
 import PaymentSummary from "../summary components/PaymentSummary";
 import AddressSummary from "../summary components/AddressSummary";
+import './PlaceOrder.css';
 
 function PlaceOrder(props) {
   return (
-    <div>
+    <div className="placeOrder">
       <Link to="/payment">
         <i className="fas fa-arrow-left"></i>
       </Link>
@@ -20,11 +21,13 @@ function PlaceOrder(props) {
       <AddressSummary address={props.address}/>
 
       <Link to="/cart">
-        <p>Cancel and go to cart</p>
+        <button>Cancel and go to cart</button>
       </Link>
+
       <Link to="/confirmation">
         <button onClick={props.clearCart}>Place order and pay</button>
       </Link>
+
     </div>
   )
 }

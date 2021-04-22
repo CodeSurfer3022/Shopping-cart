@@ -1,4 +1,5 @@
 import React from "react";
+import './OrderSummary.css';
 
 function OrderSummary(props) {
   const items = props.cartItems.map(item => <tr key={item.itemId}>
@@ -9,7 +10,7 @@ function OrderSummary(props) {
   </tr>)
 
   return(
-    <div>
+    <div className="orderSummary">
       <table>
         <tbody>
         <tr>
