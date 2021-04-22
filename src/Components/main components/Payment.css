@@ -1,0 +1,20 @@
+.pay {
+    flex: 2;
+    width: 50%;
+    background: gold;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pay button {
+    margin: 10px;
+    padding: 10px;
+}
+
+.pay form input{
+    display: none;
+}
+
+.fa-arrow-left {
+    font-size: xx-large;
+}

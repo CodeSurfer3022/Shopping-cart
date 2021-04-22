@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import './PaymentCard.css';
 
 function PaymentCard(props) {
   let selection
@@ -8,20 +9,22 @@ function PaymentCard(props) {
       <Link to="/placeorder">
         <button>Pay</button>
       </Link>
-      <button>Edit payment details</button>
     </div>)
   }
 
   return (
-    <div>
-      <input
-        type="radio"
-        name="payment"
-        value={props.payment.payment}
-        checked={props.payment.checked}
-        onChange={() => props.handleChange(props.index)}
-      />
-      <p className="payment">{props.payment.payment}</p>
+    <div className="paymentCard">
+      <div className="payment">
+        <input
+          type="radio"
+          name="payment"
+          value={props.payment.payment}
+          checked={props.payment.checked}
+          onChange={() => props.handleChange(props.index)}
+        />
+        <p>{props.payment.payment}</p>
+        <i className="fas fa-edit"></i>
+      </div>
       {selection}
     </div>
   )

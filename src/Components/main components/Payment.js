@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import PaymentCard from "../render components/PaymentCard";
+import './Payment.css';
 
 function Payment(props) {
   const paymentCards = props.payments.map((payment, index) =>
@@ -13,11 +14,11 @@ function Payment(props) {
     />)
 
   return (
-    <div>
+    <div className="pay">
       <Link to="/buy">
         <i className="fas fa-arrow-left"></i>
       </Link>
-      <h1>Pay {props.total}</h1>
+      <h1>Pay &#8377; {props.total}</h1>
       <h2>Select a payment method</h2>
       <div className="payments">
         {paymentCards}
@@ -26,9 +27,8 @@ function Payment(props) {
         <label>
           <input name="payment" placeholder="Enter your Payment"/>
         </label>
-        <button onClick={props.addPayment}>Add new Payment</button>
+        <button onClick={props.addPayment}>+ Add new Payment</button>
       </form>
-
     </div>
   )
 }
