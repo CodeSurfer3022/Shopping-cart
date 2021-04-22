@@ -1,0 +1,10 @@
+.confirmation {
+    flex: 2;
+    text-align: center;
+}
+
+.confirmation button {
+    padding: 10px;
+    display: block;
+    margin: 20px auto;
+}

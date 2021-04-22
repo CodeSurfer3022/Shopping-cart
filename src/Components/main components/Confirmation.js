@@ -1,16 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import './Confirmation.css';
 
 function Confirmation() {
   return(
-    <div>
+    <div className="confirmation">
       <h1>Thanks for shopping with us!</h1>
       <p>Your order will be delivered in 2 seconds..</p>
       <Link to="/shop">
-        <p>Continue shopping</p>
+        <button>Continue shopping</button>
       </Link>
-      <Link to="/home">
-        <p>go to Home</p>
+      <Link to="/">
+        <button>go to Home</button>
       </Link>
     </div>
   )
