@@ -23,7 +23,8 @@ function OrderSummary(props) {
           items
         }
         <tr>
-          <td>total {props.total}</td>
+          <td colSpan="3">Total</td>
+          <td> {props.total}</td>
         </tr>
         </tbody>
       </table>
