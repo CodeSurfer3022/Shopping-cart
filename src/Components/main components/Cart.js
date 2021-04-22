@@ -5,6 +5,7 @@ import './Cart.css'
 
 function Cart(props) {
 
+  console.log(process.env.PUBLIC_URL);
   const {cartItems} = props;
 
   const cartItemCards = cartItems.map(cartItem => <CartItemCard
@@ -16,8 +17,10 @@ function Cart(props) {
 
   if (Array.isArray(cartItems) && !cartItems.length) {
     return (
-      <div className="cart">
-        <h3>Cart is empty</h3>
+      <div className="cart cart-empty">
+        <h1>Cart is empty</h1>
+        <p>Go to shop to add items!</p>
+        <img src={process.env.PUBLIC_URL + "/assets/images/empty_cart.png"} alt="empty cart"/>
       </div>
     )
   }
@@ -26,10 +29,13 @@ function Cart(props) {
       <div className="cartList">
         {cartItemCards}
       </div>
-      <p>Grand total is {props.total}</p>
+      <div className="cart-total">
+        <p className="total">Grand total</p>
+        <p>{props.total}</p>
+      </div>
 
       <Link to="buy">
-        <button>Proceed to Buy</button>
+        <button className="buyButton">Proceed to Buy</button>
       </Link>
     </div>
   )
