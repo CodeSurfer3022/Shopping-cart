@@ -1,0 +1,12 @@
+.addressCard {
+    background: white;
+    width: 70%;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.address {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}

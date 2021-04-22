@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import AddressCard from "../render components/AddressCard";
+import './Buy.css';
 
 function Buy(props) {
   const addressCards = props.addresses.map((address, index) =>
@@ -13,11 +14,8 @@ function Buy(props) {
     />)
 
   return (
-    <div>
-      <Link to="/cart">
-        <h2>Cancel</h2>
-      </Link>
-      <p>Select a delivery address</p>
+    <div className="buy">
+      <h2>Select a delivery address</h2>
       <div className="addresses">
         {addressCards}
       </div>
@@ -25,8 +23,11 @@ function Buy(props) {
         <label>
           <input name="address" placeholder="Enter your address"/>
         </label>
-        <button onClick={props.addAddress}>Add new address</button>
+        <button onClick={props.addAddress}>+ Add new address</button>
       </form>
+      <Link to="/cart">
+        <button>Cancel and go back to cart</button>
+      </Link>
     </div>
   )
 }
