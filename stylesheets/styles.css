@@ -1,15 +1,22 @@
-header {
-    background: coral;
+body {
+    font-family: "Helvetica Neue", sans-serif;
 }
 
-footer {
-    background: blueviolet;
+#root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.shop-card {
-    background: azure;
+a {
+    text-decoration: none;
 }
 
-.cart-card {
-    background: aliceblue;
+button {
+    cursor: pointer;
+    border: none;
+}
+
+button:focus {
+    outline: none;
 }
